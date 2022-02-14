@@ -1,5 +1,10 @@
 <?php
     abstract class Controller {
+        protected $_view;
+
+        public function __construct() {
+            $this->_view = new View(new Request);
+        }
         /**
          * This abstract method forces all classes that inherit from 'Controller'
          * to implement an 'index' method, even if it has no code.

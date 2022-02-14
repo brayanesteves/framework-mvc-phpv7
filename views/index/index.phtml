@@ -1,0 +1,70 @@
+    <main>
+      <div class="big-wrapper light">
+        <img src="<?php echo $_layoutParams['root_img']; ?>png/shape.png" alt="" class="shape" />
+
+        <header>
+          <div class="container">
+            <div class="logo">
+              <img src="<?php echo $_layoutParams['root_img']; ?>png/logo.png" alt="Logo" />
+              <h3>Danvo in a new branch</h3>
+            </div>
+
+            <div class="links">
+              <ul>
+              <?php if(isset($_layoutParams['menu'])): ?>
+                    <?php for($i = 0; $i < count($_layoutParams['menu']); $i++): ?>
+                    <?php
+                        if($item && $_layoutParams['menu'][$i]['Rfrnc'] == $item) {
+                            $_item_style = 'current';
+                        } else {
+                            $_item_style = '';
+                        } 
+                    ?>
+                    <li id="<?php echo $_item_style; ?>"><a href="<?php echo $_layoutParams['menu'][$i]['link']; ?>"><?php echo $_layoutParams['menu'][$i]['title']; ?></a></li>
+                <?php endfor; ?>
+                <?php endif; ?>
+                <li><a href="#" class="btn">Sign up</a></li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="showcase-area">
+          <div class="container">
+            <div class="left">
+              <div class="big-title">
+                <h1>Future is here,</h1>
+                <h1>Start Exploring now.</h1>
+              </div>
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Delectus eius distinctio odit, magni magnam qui ex perferendis
+                vitae!
+              </p>
+              <div class="cta">
+                <a href="#" class="btn">Get started</a>
+              </div>
+            </div>
+
+            <div class="right">
+              <img src="<?php echo $_layoutParams['root_img']; ?>png/person.png" alt="Person Image" class="person" />
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
