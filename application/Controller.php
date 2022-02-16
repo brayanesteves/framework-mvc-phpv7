@@ -17,5 +17,29 @@
          * And if a method is sent by mistake, it will be corrected by 'Bootstrap.php'
          */
         abstract public function index();
+
+        /**
+         * 
+         */
+        protected function loadModel($model) {
+            $model = $model . 'Model';
+            $rootModel = ROOT . 'models' . DS . $model . '.php';
+            if(is_readable($rootModel)) {
+                require_once $rootModel;    
+                $model = new $model;
+                return $model;
+            } else {
+                throw new Exception('Error model');
+            }
+        }
+
+        protected function getLibrary($folder, $library, $version, $mainFile, $extension) {
+            $rootLibrary = ROOT . 'libs' . DS . $folder . DS . $library . DS . 'version/' . $version . DS . $mainFile .'.' . $extension;
+            if(is_readable($rootLibrary)) {
+                require_once $rootLibrary;
+            } else {
+                throw new Exception('Error library');
+            }
+        }
     }
 ?>

@@ -1,1 +1,25 @@
-<h2>About</h2>
+<main>    
+    <div class="container-card">
+        <div class="grid">
+            <?php if(isset($this->posts) && count($this->posts)): ?>
+            <?php for($i = 0; $i < count($this->posts); $i++): ?>
+            <!-- <CARD Nº<?php echo $this->posts[$i]['Rfrnc']; ?>> -->
+            <div class="card">
+                <div class="card_img">
+                    <img src="https://images.unsplash.com/photo-1624593895161-c2d67791ef7a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
+                </div>
+                <div class="card_body">
+                    <h2 class="card_title"><?php echo $this->posts[$i]['Ttl']; ?></h2>
+                    <p><?php echo $this->posts[$i]['Bdy']; ?></p>
+                    <p class="card_author">by <a href="#<?php echo $this->posts[$i]['Rfrnc_Usr']; ?>" class="author_link"><?php echo $this->posts[$i]['Rfrnc_Usr']; ?></a></p>
+                    <a href="#<?php echo $this->posts[$i]['Rfrnc']; ?>" class="read_more">Read article</a>
+                </div>
+            </div>
+            <!-- <.CARD Nº<?php echo $this->posts[$i]['Rfrnc']; ?>> -->
+            <?php endfor; ?>
+            <?php else: ?>
+            <p><strong>No data</strong></p>
+            <?php endif; ?>
+        </div>
+    </div>
+</main>

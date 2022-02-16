@@ -23,4 +23,15 @@
     define('APP_NAME', 'Halcón Bit');
     define('APP_SLOGAN', 'Наука — это весело, наслаждайся ею.');
     define('APP_COMPANY', 'Halcón Bit');
+
+    /**
+     *  ===========================
+     * |          DATABASE         |
+     *  ===========================
+     */
+    define('DB_HOST', 'localhost');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+    define('DB_NAME', 'mipss_');
+    define('DB_CHAR', 'utf8');
 ?>

@@ -21,6 +21,7 @@
             $menu = array(
                 array('Rfrnc' => 'index', 'title' => 'Home', 'link' => BASE_URL),
                 array('Rfrnc' => 'about', 'title' => 'About', 'link' => BASE_URL . 'about'),
+                array('Rfrnc' => 'pdf', 'title' => 'PDF', 'link' => BASE_URL . 'pdf/testPDF/Halcon/Bit'),
             );
 
             $_layoutParams = array(

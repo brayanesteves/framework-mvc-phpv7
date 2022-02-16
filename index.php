@@ -19,6 +19,7 @@
     require_once APP_PATH .      'Model.php';
     require_once APP_PATH .       'View.php';
     require_once APP_PATH .     'Record.php';
+    require_once APP_PATH .   'Database.php';
 
     // =============================== //
     //          Test 'Files'           //
