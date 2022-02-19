@@ -28,6 +28,7 @@
                 'root_css' => BASE_URL . 'views/layouts/' . DEFAULT_LAYOUT . '/assets/css/',
                 'root_img' => BASE_URL . 'views/layouts/' . DEFAULT_LAYOUT . '/assets/img/',
                 'root_js'  => BASE_URL . 'views/layouts/' . DEFAULT_LAYOUT . '/assets/js/',
+                'libs_js'  => BASE_URL . 'libs/JS/',
                 'menu'     => $menu
             );
             /**
