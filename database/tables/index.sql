@@ -78,3 +78,21 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Psts` (
     PRIMARY KEY (`Rfrnc`)
 ) ENGINE='MyISAM' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Psts (English: 0 - Posts / Spanish: 0 - Publicaciones)';
 # <.ENGLISH: POSTS / SPANISH: PUBLICACIONES>
+
+# <ENGLISH: MENU / SPANISH: MENÚ>
+CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Mn` (
+    `Rfrnc`         INT    (255) NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc         (English: Reference                          / Spanish: Referencia)',
+    `Rfrnc_Usr`     INT    (255) NOT NULL                COMMENT 'Rfrnc_Prsn    (English: Reference. User                    / Spanish: Referencia. Usuario)',
+    `Rfrnc_Mn`      INT    (255) NOT NULL                COMMENT 'Rfrnc_Mn      (English: Reference. Menu                    / Spanish: Referencia. Menú)',
+    `Nm`            VARCHAR(255) NOT NULL                COMMENT 'Nm            (English: Name                               / Spanish: Nombre)',
+    `Dscrptn`       TEXT         NOT NULL                COMMENT 'Dscrptn       (English: Description                        / Spanish: Descripción)',
+    `Lnk`           TEXT         NOT NULL                COMMENT 'Lnk           (English: Link                               / Spanish: Enlaces)',
+    `Img`           TEXT             NULL                COMMENT 'Ttl           (English: Title                              / Spanish: Título)',
+    `Cndtn`         INT    (2)   NOT NULL                COMMENT 'Cndtn         (English: Condition [0: Inactive, 1: Active] / Spanish: Estado    [0: Inactivo, 1: Activo])',
+    `Rmvd`          INT    (2)   NOT NULL                COMMENT 'Rmvd          (English: Removed   [0: Inactive, 1: Active] / Spanish: Eliminado [0: Inactivo, 1: Activo])',
+    `Lckd`          INT    (2)   NOT NULL                COMMENT 'Lckd          (English: Locked    [0: Inactive, 1: Active] / Spanish: Bloqueado [0: Inactivo, 1: Activo])',
+    `DtAdmssn`      DATE             NULL                COMMENT 'DtAdmssn      (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
+    `ChckTm`        TIME             NULL                COMMENT 'ChckTm        (English: Check In Time                      / Spanish: Hora de Ingreso)', 
+    PRIMARY KEY (`Rfrnc`)
+) ENGINE='MyISAM' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Mn (English: 0 - Menu / Spanish: 0 - Menú)';
+# <.ENGLISH: MENÚ / SPANISH: MENÚ>

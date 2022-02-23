@@ -41,5 +41,31 @@
                 throw new Exception('Error library');
             }
         }
+
+        protected function getText($key) {
+            if(isset($_POST[$key]) && !empty($_POST[$key])) {
+                $_POST[$key] = htmlspecialchars($_POST[$key], ENT_QUOTES, 'UTF-8');
+                return $_POST[$key];
+            }
+            return '';
+        }
+
+        protected function getInt($key) {
+            if(isset($_POST[$key]) && !empty($_POST[$key])) {
+                $_POST[$key] = filter_input(INPUT_POST, $key, FILTER_VALIDATE_INT);
+                return $_POST[$key];
+            }
+            return 0;
+        }
+
+        protected function redirect($root = false) {
+            if($root) {
+                header('location:' . BASE_URL . $root);
+                exit;
+            } else {
+                header('location:' . BASE_URL);
+                exit;
+            }
+        }
     }
 ?>

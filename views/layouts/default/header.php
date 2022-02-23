@@ -8,6 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <?php if(isset($_layoutParams['libscssjs']) && count($_layoutParams['libscssjs'])): ?>
+    <?php for($i = 0; $i < count($_layoutParams['libscssjs']); $i++): ?>
+    <link href="<?php echo $_layoutParams['libscssjs'][$i]; ?>" rel="stylesheet" type="text/css" />
+    <?php endfor; ?>
+    <?php endif; ?>
     <link href="<?php echo $_layoutParams['root_css']; ?>styles.css" rel="stylesheet" type="text/css" />
+    <?php if(isset($_layoutParams['css']) && count($_layoutParams['css'])): ?>
+    <?php for($i = 0; $i < count($_layoutParams['css']); $i++): ?>
+    <link href="<?php echo $_layoutParams['css'][$i]; ?>" rel="stylesheet" type="text/css" />
+    <?php endfor; ?>
+    <?php endif; ?>
 </head>
-<body>   
+<body> 
+    <noscript>No function JavaScript browser</noscript>  
