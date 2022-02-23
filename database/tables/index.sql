@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Psts` (
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Mn` (
     `Rfrnc`         INT    (255) NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc         (English: Reference                          / Spanish: Referencia)',
     `Rfrnc_Usr`     INT    (255) NOT NULL                COMMENT 'Rfrnc_Prsn    (English: Reference. User                    / Spanish: Referencia. Usuario)',
-    `Rfrnc_Mn`      INT    (255) NOT NULL                COMMENT 'Rfrnc_Mn      (English: Reference. Menu                    / Spanish: Referencia. Menú)',
+    `Rfrnc_Mn`      INT    (255)     NULL                COMMENT 'Rfrnc_Mn      (English: Reference. Menu                    / Spanish: Referencia. Menú)',
     `Nm`            VARCHAR(255) NOT NULL                COMMENT 'Nm            (English: Name                               / Spanish: Nombre)',
     `Dscrptn`       TEXT         NOT NULL                COMMENT 'Dscrptn       (English: Description                        / Spanish: Descripción)',
     `Lnk`           TEXT         NOT NULL                COMMENT 'Lnk           (English: Link                               / Spanish: Enlaces)',
