@@ -50,6 +50,9 @@
             return '';
         }
 
+        /**
+         * Request 'POST'
+         */
         protected function getInt($key) {
             if(isset($_POST[$key]) && !empty($_POST[$key])) {
                 $_POST[$key] = filter_input(INPUT_POST, $key, FILTER_VALIDATE_INT);
@@ -67,5 +70,27 @@
                 exit;
             }
         }
+
+        /**
+         * Request 'GET'
+         */
+        protected function filterInt($int) {
+            $int = (int) $int;
+            if(is_int($int)) {
+                return $int;
+            } else {
+                return 0;
+            }
+        }
+        protected function filterIntEncrypted($int) {
+            return $int;
+        }
+
+        protected function getPostParam($key) {
+            if(isset($_POST[$key])) {
+                return $_POST[$key];
+            }
+        }
+
     }
 ?>

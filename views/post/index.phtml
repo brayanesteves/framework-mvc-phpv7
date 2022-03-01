@@ -16,7 +16,10 @@
       <th scope="row"><?php echo $i; ?></th>
       <td><a href="<?php echo $this->posts[$i]['Rfrnc']; ?>" target="_blank"><?php echo $this->posts[$i]['Ttl']; ?></a></td>
       <td><?php echo $this->posts[$i]['Bdy']; ?></td>
-      <td>@mdo</td>
+      <td>
+        <a href="<?php echo BASE_URL . 'post/edit/' . md5($this->posts[$i]['Rfrnc']); ?>">Edit</a>
+        <a href="<?php echo BASE_URL . 'post/delete/' . md5($this->posts[$i]['Rfrnc']); ?>">Delete</a>
+      </td>
     </tr>
   <?php endfor; ?>    
   </tbody>
