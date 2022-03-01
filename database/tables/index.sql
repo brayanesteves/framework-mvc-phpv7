@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Actns` (
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Psts` (
     `Rfrnc`         INT    (255) NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc         (English: Reference                          / Spanish: Referencia)',
     `Rfrnc_Usr`     INT    (255) NOT NULL                COMMENT 'Rfrnc_Prsn    (English: Reference. User                    / Spanish: Referencia. Usuario)',
-    `Ttl`           VARCHAR(20)  NOT NULL                COMMENT 'Ttl           (English: Title                              / Spanish: Título)',
+    `Ttl`           VARCHAR(90)  NOT NULL                COMMENT 'Ttl           (English: Title                              / Spanish: Título)',
     `Bdy`           TEXT         NOT NULL                COMMENT 'Bdy           (English: Body                               / Spanish: Cuerpo)',
     `Cndtn`         INT    (2)   NOT NULL                COMMENT 'Cndtn         (English: Condition [0: Inactive, 1: Active] / Spanish: Estado    [0: Inactivo, 1: Activo])',
     `Rmvd`          INT    (2)   NOT NULL                COMMENT 'Rmvd          (English: Removed   [0: Inactive, 1: Active] / Spanish: Eliminado [0: Inactivo, 1: Activo])',
