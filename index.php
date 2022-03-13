@@ -20,6 +20,9 @@
     require_once APP_PATH .       'View.php';
     require_once APP_PATH .     'Record.php';
     require_once APP_PATH .   'Database.php';
+    require_once APP_PATH .    'Session.php';
+
+    Session::init();
 
     // =============================== //
     //          Test 'Files'           //

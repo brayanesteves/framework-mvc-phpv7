@@ -23,6 +23,7 @@
          * http://localhost/mvc-phpv7/post/create
          */
         public function create() {
+            Session::access('admin');
             $this->_view->title = 'New Post';
             // Load First
             $this->_view->setLibsCSSJS(array('bootstrap/version/5.1.3/dist/css/bootstrap.min'), 0);
