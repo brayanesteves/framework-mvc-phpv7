@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Usrs` (
     `ChckTm`       TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)',
     PRIMARY KEY (`Rfrnc`),
     CONSTRAINT `FrgnKy_Prsn` FOREIGN KEY(`Rfrnc_Prsn`) REFERENCES `MIPSS_`.`0_Prsn`(`Rfrnc`)
-) ENGINE='MyISAM' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Usrs (English: 0 - Users / Spanish: 0 - Usuarios)';
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Usrs (English: 0 - Users / Spanish: 0 - Usuarios)';
 # <0 - USUARIOS: INSERTAR DATOS>
 
 # <.ENGLISH: USERS / SPANISH: USUARIOS>
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_TypsUsrs` (
     `DtAdmssn` DATE             NULL                COMMENT 'DtAdmssn (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
     `ChckTm`   TIME             NULL                COMMENT 'ChckTm   (English: Check In Time                      / Spanish: Hora de Ingreso)', 
     PRIMARY KEY (`Rfrnc`)
-) ENGINE='MyISAM' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_TpsUsrs (English: 0 - Types of Users / Spanish: 0 - Tipos de Usuarios)';
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_TpsUsrs (English: 0 - Types of Users / Spanish: 0 - Tipos de Usuarios)';
 
 # <.ENGLISH: TYPES OF USERS / SPANISH: TIPOS DE USUARIOS>
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_OprtnUsrTypActns` (
     `DtAdmssn`     DATE             NULL                COMMENT 'DtAdmssn     (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
     `ChckTm`       TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)',
     PRIMARY KEY (`Rfrnc`)
-) ENGINE='MyISAM' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_OprtnUsrTypActns (English: Operation. User Type Actions / Spanish: 0 - Operación. Acciones: Tipos de Usuarios)';
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_OprtnUsrTypActns (English: Operation. User Type Actions / Spanish: 0 - Operación. Acciones: Tipos de Usuarios)';
 
 # <.ENGLISH: OPERATION. USER TYPE ACTIONS / SPANISH: OPERACIÓN. ACCIONES DE TIPOS DE USUARIOS>
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Actns` (
     `DtAdmssn`   DATE             NULL                COMMENT 'DtAdmssn     (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
     `ChckTm`     TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)', 
     PRIMARY KEY (`Rfrnc`)
-) ENGINE='MyISAM' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Actns (English: 0 - Actions / Spanish: 0 - Acciones)';
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Actns (English: 0 - Actions / Spanish: 0 - Acciones)';
 
 # <ENGLISH: POSTS / SPANISH: PUBLICACIONES>
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Psts` (
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Psts` (
     `DtAdmssn`      DATE             NULL                COMMENT 'DtAdmssn      (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
     `ChckTm`        TIME             NULL                COMMENT 'ChckTm        (English: Check In Time                      / Spanish: Hora de Ingreso)', 
     PRIMARY KEY (`Rfrnc`)
-) ENGINE='MyISAM' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Psts (English: 0 - Posts / Spanish: 0 - Publicaciones)';
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Psts (English: 0 - Posts / Spanish: 0 - Publicaciones)';
 # <.ENGLISH: POSTS / SPANISH: PUBLICACIONES>
 
 # <ENGLISH: MENU / SPANISH: MENÚ>
@@ -94,5 +94,5 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Mn` (
     `DtAdmssn`      DATE             NULL                COMMENT 'DtAdmssn      (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
     `ChckTm`        TIME             NULL                COMMENT 'ChckTm        (English: Check In Time                      / Spanish: Hora de Ingreso)', 
     PRIMARY KEY (`Rfrnc`)
-) ENGINE='MyISAM' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Mn (English: 0 - Menu / Spanish: 0 - Menú)';
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Mn (English: 0 - Menu / Spanish: 0 - Menú)';
 # <.ENGLISH: MENÚ / SPANISH: MENÚ>
