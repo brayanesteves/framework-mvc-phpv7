@@ -1,7 +1,6 @@
 <?php
     abstract class Controller {
         protected $_view;
-
         public function __construct() {
             $this->_view = new View(new Request);
         }
@@ -88,6 +87,46 @@
 
         protected function getPostParam($key) {
             if(isset($_POST[$key])) {
+                return $_POST[$key];
+            }
+        }
+
+        protected function getSQL($key) {
+            if(isset($_POST[$key]) && !empty($_POST[$key])) {
+                $_POST[$key] = strip_tags($_POST[$key]);
+
+                if(!get_magic_quotes_gpc()) {
+                    $_POST[$key] = mysql_escape_string($_POST[$key]);
+                }
+
+                return trim($_POST[$key]);
+            }
+        }
+
+        // Escapes SQL pattern wildcards in $_POST[$key]. 
+        function escape_sql_wild($key) {
+            $result = array();
+            foreach(str_split($_POST[$key]) as $ch)
+            {
+                if ($ch == "\\" || $ch == "%" || $ch == "_") {
+                    $result[] = "\\";
+                }
+                $result[] = $ch;
+            }
+            return
+                implode("", $result);
+        }
+
+        protected function getAlphaNum($key) {
+            if(isset($_POST[$key]) && !empty($_POST[$key])) {
+                $_POST[$key] = (string) preg_replace('/[^A-Z0-9_]/i', '', $_POST[$key]);
+                return $_POST[$key];
+            }
+        }
+
+        protected function getAlphaNumber($key) {
+            if(isset($_POST[$key]) && !empty($_POST[$key])) {
+                $_POST[$key] = (string) stripslashes($_POST[$key]);
                 return $_POST[$key];
             }
         }

@@ -33,7 +33,11 @@
              */
             $menu = $this->loadModel('menu');
             $this->menus = null;
-            $this->menus = $menu->getMenus(); 
+            if(Session::get('authenticated')) {
+                $this->menus = $menu->getMenusTypeUser(Session::get('Usrnm'), Session::get('UsrTyp_Rfrnc')); 
+            } else {
+                $this->menus = $menu->getMenus(); 
+            }
             $css = array();
             if(count($this->_css)) {
                 $css = $this->_css;
@@ -83,7 +87,7 @@
         public function setCSS(array $css) {
             if(is_array($css) && count($css)) {
                 for($i = 0; $i < count($css); $i++) {
-                    $this->_js[] = BASE_URL . 'libs/CSS' . $css[$i] . '.js';
+                    $this->_css[] =  BASE_URL . 'views/' . $this->_controller . '/assets/css/' . $css[$i] . '.css';
                 }
             } else {
                 throw new Exception('ERROR files CSS in ' . $this->_controller);

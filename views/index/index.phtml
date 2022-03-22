@@ -20,10 +20,9 @@
                             $_item_style = '';
                         } 
                     ?>
-                    <li id="<?php echo $_item_style; ?>"><a href="<?php echo BASE_URL . $_layoutParams['menu'][$i]['Lnk']; ?>"><?php echo $_layoutParams['menu'][$i]['Nm']; ?></a></li>
+                    <li id="<?php echo $_item_style; ?>"><a href="<?php echo BASE_URL . $_layoutParams['menu'][$i]['Lnk']; ?>" class="<?php if($_layoutParams['menu'][$i]['Lnk'] == "login") echo "btn"; ?>"><?php echo $_layoutParams['menu'][$i]['Nm']; ?></a></li>
                 <?php endfor; ?>
                 <?php endif; ?>
-                <li><a href="#" class="btn">Sign up</a></li>
               </ul>
             </div>
 

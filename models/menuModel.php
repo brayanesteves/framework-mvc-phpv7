@@ -13,7 +13,12 @@
             return $post;
         }
         public function getMenus() {
-            $post = $this->_db->query("SELECT * FROM `0_Mn` AS `A` WHERE `A`.`Cndtn` = 1 AND `A`.`Rmvd` = 0 AND `A`.`Lckd` = 0;");
+            $post = $this->_db->query("SELECT * FROM `0_Mn` AS `A` WHERE `A`.`Cndtn` = 1 AND `A`.`Rmvd` = 0 AND `A`.`Lckd` = 0 AND `Athntcd` = 0;");
+            return $post->fetchAll();
+        }
+
+        public function getMenusTypeUser($user, $typeuser) {
+            $post = $this->_db->query("SELECT * FROM `0_Mn` AS `A` WHERE `A`.`Cndtn` = 1 AND `A`.`Rmvd` = 0 AND `A`.`Lckd` = 0 AND `Athntcd` = 1;");
             return $post->fetchAll();
         }
     }
