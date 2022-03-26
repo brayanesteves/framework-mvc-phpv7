@@ -11,7 +11,7 @@
             // Load Second
             $this->_view->setJS(array('main'));
             $this->_view->title = 'Front page';
-            $this->_view->render('index', 'encrypted');
+            $this->_view->render('index', 'index');
         }
     }
 ?>
