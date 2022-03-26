@@ -11,6 +11,13 @@
          * Example: http://localhost/mvc-phpv7/login
          */
         public function index() {
+            
+            /**
+             * If login 'user'
+             */
+            if(Session::get('authenticated')) {
+                $this->redirect();
+            }
             // Load First
             $this->_view->setCSS(array('styles'));
             $this->_view->setLibsJS(array('angular.js/version/1.8.2/angular.min', 'jquery/version/3.6.0/js/jquery-3.6.0.min'));
@@ -18,7 +25,6 @@
             $this->_view->setJS(array('main'));
             $this->_view->title = "Login";
             if($this->getInt('send') == 1) {
-                echo "ACA";
                 $this->_view->data = $_POST;
                 
                 if(!$this->getAlphaNumber('username')) {

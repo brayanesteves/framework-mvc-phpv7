@@ -32,6 +32,21 @@
             }
         }
 
+        /**
+         * 
+         */
+        protected function loadWebSocket($socket) {
+            $socket = $model . 'WebSocket';
+            $rootSocket = ROOT . 'web-sockets' . DS . $socket . '.php';
+            if(is_readable($rootSocket)) {
+                require_once $rootSocket;    
+                $socket = new $socket;
+                return $socket;
+            } else {
+                throw new Exception('Error Web Sockets');
+            }
+        }
+
         protected function getLibrary($folder, $library, $version, $mainFile, $extension) {
             $rootLibrary = ROOT . 'libs' . DS . $folder . DS . $library . DS . 'version/' . $version . DS . $mainFile .'.' . $extension;
             if(is_readable($rootLibrary)) {
@@ -129,6 +144,16 @@
                 $_POST[$key] = (string) stripslashes($_POST[$key]);
                 return $_POST[$key];
             }
+        }
+
+        /**
+         * Validate 'email' register users
+         */
+        public function validateEmail($email) {
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                return false;
+            }
+            return true;
         }
 
     }

@@ -17,4 +17,23 @@
       </tr>    
     </tbody>
   </table>
+
+  <h1>Uniquid</h1>
+  <h2>Uniqid main: <span>4f6a6d832be79</span></h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Uniqiq</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php for($i = 0; $i < rand(1, 5); $i++): ?>
+      <tr>
+        <th scope="row"><?php echo $i; ?></th>
+        <td><?php echo uniqid(); ?></td>
+      </tr>  
+      <?php endfor; ?>  
+    </tbody>
+  </table>
 </div>

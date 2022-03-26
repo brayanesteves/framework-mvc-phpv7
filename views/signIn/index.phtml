@@ -1,0 +1,65 @@
+<?php if(isset($this->_error)): ?>
+<div id="toast-error">
+    <div class="container-1">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    <div class="container-1">
+        <p>Error</p>
+        <p><?php echo $this->_error; ?></p>
+    </div>
+    <button id="close" onclick="closeToastError()">&times;</button>
+</div>
+<?php endif; ?>
+
+<?php if(isset($this->_message)): ?>
+<div id="toast">
+    <div class="container-1">
+        <i class="fas fa-check-square"></i>
+    </div>
+    <div class="container-2">
+        <p>Success</p>
+        <p><?php echo $this->_message; ?></p>
+    </div>
+    <button id="close" onclick="closeToast()">&times;</button>
+</div>
+<?php endif; ?>
+<div class="wrapper">
+  <div class="title">
+    Sign In
+  </div>
+  <div class="social_media">
+    <div class="item">
+      <i class="fab fa-facebook-f"></i>
+    </div>
+    <div class="item">
+      <i class="fab fa-twitter"></i>
+    </div>
+    <div class="item">
+      <i class="fab fa-google-plus-g"></i>
+    </div>
+  </div>
+  <!-- <FORM> -->
+  <form method="POST" action="<?php  ?>">
+      <input type="hidden" name="signin" value="1">      
+      <div class="form">
+        <div class="input_field">
+          <input type="text" name="username" placeholder="Enter username..." class="input" value="<?php if(isset($this->data)) echo $this->data['username']; ?>">
+          <i class="fas fa-user"></i>
+        </div>
+        <!--<div class="input_field">
+          <input type="text" placeholder="Email" class="input">
+          <i class="far fa-envelope"></i>
+        </div>-->
+        <div class="input_field">
+          <input type="password" name="password" class="input" placeholder="Enter password...">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="input_field">
+          <input type="password" name="confirm-password" class="input" placeholder="Enter confirm password...">
+          <i class="fas fa-lock"></i>
+        </div>
+        <input type="submit" value="Sign In">
+      </div>
+  </form>
+  <!-- <.FORM> -->
+</div>

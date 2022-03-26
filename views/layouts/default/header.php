@@ -13,6 +13,7 @@
     <link href="<?php echo $_layoutParams['libscssjs'][$i]; ?>" rel="stylesheet" type="text/css" />
     <?php endfor; ?>
     <?php endif; ?>
+    <link href="<?php echo $_layoutParams['root_css'] . 'styles.css'; ?>" rel="stylesheet" type="text/css" />
     <?php if(isset($_layoutParams['css']) && count($_layoutParams['css'])): ?>
     <?php for($i = 0; $i < count($_layoutParams['css']); $i++): ?>
     <link href="<?php echo $_layoutParams['css'][$i]; ?>" rel="stylesheet" type="text/css" />
@@ -21,3 +22,4 @@
 </head>
 <body> 
     <noscript>No function JavaScript browser</noscript>  
+    <h1 id="message-connect-internet">Sample Message</h1>

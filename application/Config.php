@@ -24,6 +24,13 @@
     define('APP_SLOGAN', 'Наука — это весело, наслаждайся ею.');
     define('APP_COMPANY', 'Halcón Bit');
 
+    define('SESSION_TIME', 10);
+
+    /**
+     * 
+     */
+    define('HASH_KEY', '4f6a6d832be79');
+
     /**
      *  ===========================
      * |          DATABASE         |

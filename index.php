@@ -21,6 +21,20 @@
         require_once APP_PATH .     'Record.php';
         require_once APP_PATH .   'Database.php';
         require_once APP_PATH .    'Session.php';
+        require_once APP_PATH .       'Hash.php';
+        require_once APP_PATH .     'Socket.php';
+
+        // =============================== //
+        //         Test 'Hash.php'         //
+        // =============================== //
+
+        /**
+         * echo Hash::getHash('sha1', '1234', HASH_KEY); exit;
+         */        
+
+        // =============================== //
+        //          'Session.php'          //
+        // =============================== //
 
         Session::init();
 

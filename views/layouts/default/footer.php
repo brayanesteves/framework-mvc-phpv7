@@ -10,5 +10,6 @@
     <script src="<?php echo $_layoutParams['js'][$i]; ?>"></script>
     <?php endfor; ?>
     <?php endif; ?>
+    <script src="<?php echo $_layoutParams['root_js'] . 'main.js'; ?>"></script>
 </body>
 </html>

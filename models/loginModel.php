@@ -8,7 +8,7 @@
          * 
          */
         public function getUser($user, $password) {
-            $data = $this->_db->query("SELECT * FROM `0_Usrs` WHERE `Usrnm` = '$user' AND `Psswrd` = '" . md5($password) . "';");
+            $data = $this->_db->query("SELECT * FROM `0_Usrs` WHERE `Usrnm` = '$user' AND `Psswrd` = '" . Hash::getHash('sha1', $password, HASH_KEY) . "';");
             return $data->fetch();
         }
     }
