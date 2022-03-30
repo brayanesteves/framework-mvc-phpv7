@@ -46,10 +46,10 @@
           <input type="text" name="username" placeholder="Enter username..." class="input" value="<?php if(isset($this->data)) echo $this->data['username']; ?>">
           <i class="fas fa-user"></i>
         </div>
-        <!--<div class="input_field">
-          <input type="text" placeholder="Email" class="input">
+        <div class="input_field">
+          <input type="text" name="email" placeholder="Email" class="input" value="<?php if(isset($this->data)) echo $this->data['email']; ?>">
           <i class="far fa-envelope"></i>
-        </div>-->
+        </div>
         <div class="input_field">
           <input type="password" name="password" class="input" placeholder="Enter password...">
           <i class="fas fa-lock"></i>

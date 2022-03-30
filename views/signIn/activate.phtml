@@ -1,0 +1,6 @@
+<h2>Account activation</h2>
+<p></p>
+<a href="<?php echo BASE_URL; ?>">Home</a>
+<?php if(!Session::get('authenticated')): ?>
+<a href="<?php echo BASE_URL . 'login'; ?>">Login</a>
+<?php endif; ?>

@@ -52,7 +52,7 @@
             if(is_readable($rootLibrary)) {
                 require_once $rootLibrary;
             } else {
-                throw new Exception('Error library');
+                throw new Exception('Error library ' . $rootLibrary);
             }
         }
 
