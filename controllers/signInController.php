@@ -79,17 +79,23 @@
                     $this->_view->render('index', 'signIn');
                     exit;
                 }
+                try {
+                
+                    $mail->From     = "Halcón Bit - Digital Agency";
+                    $mail->FromName = "Sign In";
+                    $mail->Subject  = 'Activate account user';
+                    $mail->Body     = 'Hello <strong>' . $this->getAlphaNumber('username') . '</strong>,' . '<p>Registered ' . BASE_URL . '. To activate your account, click on the following link: <br/><a href="' . BASE_URL . 'signIn/activate/' . md5($user['Rfrnc']) . '/' . $user['ActvtnCd_SHA256'] . '">Activate account</a></p>';
+                    $mail->AltBody  = 'Your email server does not support HTML';
+                    $mail->AddAddress($this->getPostParam('email'));
+                    $mail->send();
 
-                $mail->From     = "Halcón Bit - Digital Agency";
-                $mail->FromName = "Sign In";
-                $mail->Subject  = 'Activate account user';
-                $mail->Body     = 'Hello <strong>' . $this->getAlphaNumber('username') . '</strong>,' . '<p>Registered ' . BASE_URL . '. To activate your account, click on the following link: <br/><a href="' . BASE_URL . 'signIn/activate/' . md5($user['Rfrnc']) . '/' . $user['ActvtnCd_SHA256'] . '">Activate account</a></p>';
-                $mail->AltBody  = 'Your email server does not support HTML';
-                $mail->AddAddress($this->getPostParam('email'));
-                $mail->send();
-
-                $this->_view->data = false;
-                $this->_view->_message = "Sign In success. Check your email to activate your account";
+                    $this->_view->data = false;
+                    $this->_view->_message = "Sign In success. Check your email to activate your account";
+                } catch (Exception $e) {
+                    $this->_view->_error = $e->getMessage();
+                    $this->_view->render('index', 'signIn');
+                    exit;
+                }
                
             }
             $this->_view->render('index', 'signIn');

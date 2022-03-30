@@ -27,7 +27,7 @@
          * @param $view
          * @param $item
          */
-        public function render($view, $item = false) {
+        public function render($view, $item = false, $error = null) {
             /**
              * Load 'menu' table '0_Mn' database
              */
