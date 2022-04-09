@@ -1,0 +1,31 @@
+<h2>Last Posts</h2>
+<?php if(Session::accessView('admin')): ?>
+<a href="<?php echo BASE_URL . 'post/create'; ?>" class="btn btn-outline-primary">Add</a>
+<?php endif; ?>
+<?php if(isset($this->posts) && count($this->posts)): ?>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php for($i = 0; $i < count($this->posts); $i++): ?>
+    <tr class="">
+      <th scope="row"><?php echo $i; ?></th>
+      <td><a href="<?php echo $this->posts[$i]['Rfrnc']; ?>" target="_blank"><?php echo $this->posts[$i]['Ttl']; ?></a></td>
+      <td><?php echo $this->posts[$i]['Bdy']; ?></td>
+      <td>
+        <a href="<?php echo BASE_URL . 'post/edit/' . md5($this->posts[$i]['Rfrnc']); ?>">Edit</a>
+        <a href="<?php echo BASE_URL . 'post/delete/' . md5($this->posts[$i]['Rfrnc']); ?>">Delete</a>
+      </td>
+    </tr>
+  <?php endfor; ?>    
+  </tbody>
+</table>
+<?php else: ?>
+<p><strong>No data</strong></p>
+<?php endif; ?>

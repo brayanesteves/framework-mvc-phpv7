@@ -1,0 +1,65 @@
+<?php if(isset($this->_pagination)): ?>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <!-- <FIRST> -->
+        <?php if($this->_pagination['first']): ?>
+        <li class="page-item">
+            <a class="page-link" href="<?php echo $link . $this->_pagination['first']; ?>">First</a>
+        </li>                
+        <?php else: ?>
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">First</a>
+        </li>                
+        <?php endif; ?>
+        <!-- <.FIRST> -->
+
+        <!-- <PREVIOUS> -->
+        <?php if($this->_pagination['previous']): ?>
+        <li class="page-item">
+            <a class="page-link" href="<?php echo $link . $this->_pagination['previous']; ?>">Previous</a>
+        </li>
+        <?php else: ?>
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <?php endif; ?>
+        <!-- <.PREVIOUS> -->                
+
+        <?php for($i = 0; $i <= count($this->_pagination['range']); $i++): ?>
+        <?php if(@$this->_pagination['current'] != @$this->_pagination['range'][$i]): ?>
+        <li class="page-item">
+            <a class="page-link" href="<?php echo @$link . @$this->_pagination['range'][$i]; ?>"><?php echo @$this->_pagination['range'][$i]; ?></a>
+        </li>
+        <?php else: ?>
+        <li class="page-item disabled">
+            <a class="page-link" href="<?php echo $link . $this->_pagination['range'][$i]; ?>" tabindex="-1"><?php echo $this->_pagination['range'][$i]; ?></a>
+        </li>
+        <?php endif; ?>
+        <?php endfor; ?>
+
+        <!-- <NEXT> -->
+        <?php if($this->_pagination['next']): ?>
+        <li class="page-item">
+            <a class="page-link" href="<?php echo $link . $this->_pagination['next']; ?>">Next</a>
+        </li>                
+        <?php else: ?>
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Next</a>
+        </li>                
+        <?php endif; ?>
+        <!-- <.NEXT> -->
+
+        <!-- <LAST> -->
+        <?php if($this->_pagination['last']): ?>
+        <li class="page-item">
+            <a class="page-link" href="<?php echo $link . $this->_pagination['last']; ?>">Last</a>
+        </li>                
+        <?php else: ?>
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Last</a>
+        </li>                
+        <?php endif; ?>
+        <!-- <.LAST> -->
+    </ul>
+</nav>
+<?php endif; ?>
