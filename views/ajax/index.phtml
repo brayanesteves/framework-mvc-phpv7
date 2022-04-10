@@ -1,0 +1,23 @@
+<h2>Example <b>AJAX</b></h2>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="country">Country</label>
+      <select id="country" name="country" class="form-control">
+        <option selected>-Selected-</option>
+        <?php for($i = 0; $i < count($this->country); $i++): ?>
+        <option value="<?php echo $this->country[$i]['Rfrnc']; ?>"><?php echo $this->country[$i]['Nm']; ?></option>
+        <?php endfor; ?>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="cities">Cities</label>
+        <select id="cities" class="form-control"></select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="addCities">Add Cities</label>
+      <input type="text" class="form-control" id="addCities" name="addCities" placeholder="Enter cities...">
+    </div>
+  </div>  
+  <button type="submit" id="btn-add" class="btn btn-primary">Record</button>
+</form>
