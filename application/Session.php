@@ -60,7 +60,7 @@
                 return false;
             }
 
-            if(Session::getLevel($level) > Session::getLevel(Session::get('level'))) {
+            if(Session::getLevel($level) > Session::getLevel(Session::get('UsrTyp_Rfrnc'))) {
                 return false;
             }
 

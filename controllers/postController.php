@@ -42,7 +42,7 @@
             // Load Second
             $this->_view->setJS(array('main'));
                      
-            $this->_view->posts = $paginator->paginate($this->_post->getPosts(), $page);
+            $this->_view->posts = $paginator->paginate($this->_post->getImgPosts(), $page);
             $this->_view->pagination = $paginator->getView('test', 'phtml', 'post/index');
             $this->_view->title = 'Posts';
             $this->_view->render('index', 'post');
@@ -70,7 +70,7 @@
          * http://localhost/mvc-phpv7/post/create
          */
         public function create() {
-            Session::access('admin');
+            //Session::access('admin');
             $this->_view->title = 'New Post';
             // Load First
             $this->_view->setLibsCSSJS(array('bootstrap/version/5.1.3/dist/css/bootstrap.min'), 0);
@@ -95,8 +95,32 @@
                     $this->_view->render('create', 'post');
                     exit;
                 }
-                $this->_post->create($this->getPostParam('title'), $this->getPostParam('body'));
-                $this->redirect('post');
+                $image = '';
+                if(isset($_FILES['imagen']['name'])) {
+                    $this->getLibrary("PHP", "class.upload", "0.3.2/src", "class.upload", 'php');
+                    $root                       = ROOT . 'views' . DS . 'post' . DS . 'public' . DS . 'img' . DS . 'post' . DS;
+                    $rootSave                   = 'views' . DS . 'post' . DS . 'public' . DS . 'img' . DS . 'post' . DS;
+                    $upload                     = new \Verot\Upload\Upload($_FILES['imagen']);
+                    $upload->allowed            = array('image/*');
+                    $upload->file_new_name_body = 'halconbit_' . uniqid();
+                    $upload->process($root);
+
+                    if($upload->processed) {
+                        $image                     = $upload->file_dst_name;
+                        $thumb                     = new \Verot\Upload\Upload($upload->file_dst_pathname);
+                        $thumb->image_resize       = true;
+                        $thumb->imagen_x           = 100;
+                        $thumb->imagen_y           = 100;
+                        $thumb->file_name_body_pre = 'thumb_';
+                        $thumb->process($root . 'thumb' . DS);
+                    }
+                } 
+                if($image) {
+                    $this->_post->createSaveImg($this->getPostParam('title'), $this->getPostParam('body'), $image, $rootSave);
+                } else {
+                    $this->_post->create($this->getPostParam('title'), $this->getPostParam('body'));
+                }
+                $this->redirect('post');            
             }
             $this->_view->render('create', 'post');
         }

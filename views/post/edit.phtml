@@ -6,12 +6,16 @@
 <form id="post" method="POST" action="">
     <input type="hidden" id="edit" name="edit" value="1" />
     <div class="mb-3">
-    <label for="title" class="form-label">Email address</label>
-    <input type="text" class="form-control" id="title" name="title" value="<?php if(isset($this->data['Ttl'])) echo $this->data['Ttl']; ?>" placeholder="Add title..." />
+        <label for="title" class="form-label">Email address</label>
+        <input type="text" class="form-control" id="title" name="title" value="<?php if(isset($this->data['Ttl'])) echo $this->data['Ttl']; ?>" placeholder="Add title..." />
     </div>
     <div class="mb-3">
-    <label for="body" class="form-label">Body</label>
-    <textarea class="form-control" id="body" name="body" rows="3"><?php if(isset($this->data['Bdy'])) echo $this->data['Bdy']; ?></textarea>
+        <label for="body" class="form-label">Body</label>
+        <textarea class="form-control" id="body" name="body" rows="3"><?php if(isset($this->data['Bdy'])) echo $this->data['Bdy']; ?></textarea>
+    </div>
+    <div class="custom-file">
+        <input type="file" name="imagen" id="imagen" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Choose file</label>
     </div>
     <button type="submit" class="btn btn-primary">Edit Post</button>
 </form>

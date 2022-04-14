@@ -1,8 +1,8 @@
 <div class="container">  
   <h2>Last Posts</h2>
-  <?php if(Session::accessView('admin')): ?>
+  <?php //if(Session::accessView('admin')): ?>
   <a href="<?php echo BASE_URL . 'post/create'; ?>" class="btn btn-outline-primary">Add</a>
-  <?php endif; ?>
+  <?php //endif; ?>
   <?php if(isset($this->posts) && count($this->posts)): ?>
   <table class="table table-hover">
     <thead>
@@ -10,6 +10,7 @@
         <th scope="col">#</th>
         <th scope="col">Title</th>
         <th scope="col">Body</th>
+        <th scope="col">Image</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -19,6 +20,13 @@
         <th scope="row"><?php echo $i; ?></th>
         <td><a href="<?php echo $this->posts[$i]['Rfrnc']; ?>" target="_blank"><?php echo $this->posts[$i]['Ttl']; ?></a></td>
         <td><?php echo $this->posts[$i]['Bdy']; ?></td>
+        <?php if(isset($this->posts[$i]['Nm'])): ?>
+        <?php $segment     = explode("/", $_SERVER["REQUEST_URI"]); ?>
+        <?php $request_uri = array_shift($segment); ?>
+        <td><img width="100px" height="100px" src="<?php echo ($_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://" . $_SERVER["HTTP_HOST"] . '/' . $segment[0] . '/' . $this->posts[$i]['Rt'] . $this->posts[$i]['Nm']; ?>" alt="<?php echo $this->posts[$i]['Ttl']; ?>" /></td>
+        <?php else: ?>
+        <td>N/A</td>
+        <?php endif; ?>
         <td>
           <a href="<?php echo BASE_URL . 'post/edit/' . md5($this->posts[$i]['Rfrnc']); ?>">Edit</a>
           <a href="<?php echo BASE_URL . 'post/delete/' . md5($this->posts[$i]['Rfrnc']); ?>">Delete</a>
