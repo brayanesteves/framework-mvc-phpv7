@@ -25,7 +25,7 @@
                  if(Session::get('Rfrnc')) {
                     $this->_referenceUser = Session::get('Rfrnc');
                  } else {
-                    $this->_referenceUser = 2;
+                    $this->_referenceUser = 0;
                  }
              }
          }
@@ -201,9 +201,13 @@
 
     public function getOperationsUserType() {
         $referencesActions = $this->getOperationUserTypeActionsReferenceActions();
-        $actionsUsers      = $this->_db->query("SELECT * FROM `0_UsrsActns` WHERE `Rfrnc_Usr` = '{$this->_referenceUser}' AND `Rfrnc_Actn` IN ( " . implode(",", $referencesActions) . " );");
-        $actionsUsers      = $actionsUsers->fetchAll(PDO::FETCH_ASSOC);
-        $data              = array();
+        if(count($referencesActions)) {
+            $actionsUsers = $this->_db->query("SELECT * FROM `0_UsrsActns` WHERE `Rfrnc_Usr` = '{$this->_referenceUser}' AND `Rfrnc_Actn` IN ( " . implode(",", $referencesActions) . " );");
+            $actionsUsers = $actionsUsers->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            $actionsUsers = array();
+        }
+        $data = array();
 
         for($i = 0; $i < count($actionsUsers); $i++) {
             $_nameAction = $this->getActionName($actionsUsers[$i]['Rfrnc_Actn']);
