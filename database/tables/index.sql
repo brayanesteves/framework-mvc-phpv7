@@ -1,3 +1,5 @@
+# --------- <ENGLISH: MODULE. USERS / SPANISH: MÓDULO. USUARIOS> ----------- #
+
 # <ENGLISH: USERS / SPANISH: USUARIOS>
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Usrs` (
     `Rfrnc`        INT(255)     NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
@@ -10,10 +12,21 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Usrs` (
     `Lckd`         INT    (2)   NOT NULL                COMMENT 'Lckd         (English: Locked [0: Inactive, 1: Active]    / Spanish: Bloqueado [0: Inactivo, 1: Activo])',
     `DtAdmssn`     DATE             NULL                COMMENT 'DtAdmssn     (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
     `ChckTm`       TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)',
-    PRIMARY KEY (`Rfrnc`),
-    CONSTRAINT `FrgnKy_Prsn` FOREIGN KEY(`Rfrnc_Prsn`) REFERENCES `MIPSS_`.`0_Prsn`(`Rfrnc`)
+    PRIMARY KEY (`Rfrnc`)
 ) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Usrs (English: 0 - Users / Spanish: 0 - Usuarios)';
 
+CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Users` (
+    `Rfrnc`    INT(255)     NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
+    `name`     VARCHAR(50)  NOT NULL                COMMENT '',
+    `username` VARCHAR(255) NOT NULL                COMMENT '',
+    `typeuser` INT    (1)   NOT NULL                COMMENT '',
+    `gender`   INT    (1)   NOT NULL                COMMENT '',
+    `email`    VARCHAR(50)  NOT NULL                COMMENT '',
+    `password` VARCHAR(50)  NOT NULL                COMMENT '',
+    `terminos` INT    (1)   NOT NULL                COMMENT '',
+    `edad`     INT    (1)   NOT NULL                COMMENT '',
+    PRIMARY KEY (`Rfrnc`)
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='';
 
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_UsrsEmls` (
     `Rfrnc`        INT(255)     NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
@@ -55,8 +68,6 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_UsrEmlActvtn` (
     `ChckTm`          TIME             NULL                COMMENT 'ChckTm          (English: Check In Time                      / Spanish: Hora de Ingreso)',
     PRIMARY KEY (`Rfrnc`)
 ) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_UsrEmlActvtn (English: 0 - User Email Activation / Spanish: 0 - Activación de Correo Electrónico del Usuario)';
-# <0 - USUARIOS: INSERTAR DATOS>
-
 # <.ENGLISH: USERS / SPANISH: USUARIOS>
 
 # <ENGLISH: TYPES OF USERS / SPANISH: TIPOS DE USUARIOS>
@@ -72,7 +83,6 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_TypsUsrs` (
     `ChckTm`   TIME             NULL                COMMENT 'ChckTm   (English: Check In Time                      / Spanish: Hora de Ingreso)', 
     PRIMARY KEY (`Rfrnc`)
 ) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_TpsUsrs (English: 0 - Types of Users / Spanish: 0 - Tipos de Usuarios)';
-
 # <.ENGLISH: TYPES OF USERS / SPANISH: TIPOS DE USUARIOS>
 
 # <ENGLISH: OPERATION. USER TYPE ACTIONS / SPANISH: OPERACIÓN. ACCIONES DE TIPOS DE USUARIOS>
@@ -87,7 +97,6 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_OprtnUsrTypActns` (
     `ChckTm`       TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)',
     PRIMARY KEY (`Rfrnc`)
 ) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_OprtnUsrTypActns (English: Operation. User Type Actions / Spanish: 0 - Operación. Acciones: Tipos de Usuarios)';
-
 # <.ENGLISH: OPERATION. USER TYPE ACTIONS / SPANISH: OPERACIÓN. ACCIONES DE TIPOS DE USUARIOS>
 
 # <ENGLISH: ACTIONS / SPANISH: ACCIONES>
@@ -105,7 +114,21 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Actns` (
     `ChckTm`     TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)', 
     PRIMARY KEY (`Rfrnc`)
 ) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Actns (English: 0 - Actions / Spanish: 0 - Acciones)';
+# <.ENGLISH: ACTIONS / SPANISH: ACCIONES>
 
+# <ENGLISH: USERS ACTIONS / SPANISH: ACCIONES DE USUARIOS>
+CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_UsrsActns` (
+    `Rfrnc`      INT    (255) NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
+    `Rfrnc_Usr`  INT    (255)     NULL                COMMENT 'Rfrnc_Lnk    (English: Reference Link                     / Spanish: Referencia. Enlace)',
+    `Rfrnc_Actn` INT    (255)     NULL                COMMENT 'Rfrnc_Actn   (English: Reference. Action                  / Spanish: Referencia. Acción)',  
+    `Cndtn`      INT    (2)   NOT NULL                COMMENT 'Cndtn        (English: Condition [0: Inactive, 1: Active] / Spanish: Estado [0: Inactivo, 1: Activo])',
+    `Rmvd`       INT    (2)   NOT NULL                COMMENT 'Rmvd         (English: Removed [0: Inactive, 1: Active]   / Spanish: Eliminado [0: Inactivo, 1: Activo])',
+    `Lckd`       INT    (2)   NOT NULL                COMMENT 'Lckd         (English: Locked [0: Inactive, 1: Active]    / Spanish: Bloqueado [0: Inactivo, 1: Activo])',
+    `DtAdmssn`   DATE             NULL                COMMENT 'DtAdmssn     (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
+    `ChckTm`     TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)', 
+    PRIMARY KEY (`Rfrnc`)
+) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_UsrsActns (English: 0 - Users Actions / Spanish: 0 - Acciones de Usuarios)';
+# <.ENGLISH: ACTIONS / SPANISH: ACCIONES>
 # <ENGLISH: POSTS / SPANISH: PUBLICACIONES>
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Psts` (
     `Rfrnc`         INT    (255) NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc         (English: Reference                          / Spanish: Referencia)',
