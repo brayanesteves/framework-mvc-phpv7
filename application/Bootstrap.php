@@ -39,6 +39,7 @@
                     call_user_func(array($controller, $mehod));
                 }
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('Not found');
             }
         }

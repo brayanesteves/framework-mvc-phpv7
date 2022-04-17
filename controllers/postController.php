@@ -70,7 +70,10 @@
          * http://localhost/mvc-phpv7/post/create
          */
         public function create() {
+
             //Session::access('admin');
+
+            $this->_ACL->access('add_psts');
             $this->_view->title = 'New Post';
             // Load First
             $this->_view->setLibsCSSJS(array('bootstrap/version/5.1.3/dist/css/bootstrap.min'), 0);
@@ -135,7 +138,7 @@
          * http://localhost/mvc-phpv7/post/edit/eccbc87e4b5ce2fe28308fd9f2a7baf3
          */
         public function edit($reference) {
-            
+            $this->_ACL->access('updt_psts');
             /**
              * No Encrypted 'Reference'
              */
@@ -204,7 +207,7 @@
          * http://localhost/mvc-phpv7/post/delete/eccbc87e4b5ce2fe28308fd9f2a7baf3
          */
         public function delete($reference) {
-               
+            $this->_ACL->access('dlt_psts');
             /**
              * No Encrypted 'Reference'
              */

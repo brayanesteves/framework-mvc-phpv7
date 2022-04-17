@@ -9,16 +9,20 @@
         private $_libscss;
         private $_libsjs;
         private $_libscssjs;
+
+        private $_layoutParams;
+        private $_Acl;
         /**
          * @param $request is 'application/Request.php'
          */
-        public function __construct(Request $request) {
+        public function __construct(Request $request, ACL $_ACL) {
             $this->_controller = $request->getController();
             $this->_css = array();
             $this->_js = array();
             $this->_libscssjs = array();
             $this->_libscss = array();
             $this->_libsjs = array();
+            $this->_Acl         = $_ACL;
         }
 
         public function index() {}        
@@ -70,6 +74,9 @@
                 'libsjs'    => $libsjs,
                 'libscssjs' => $libscssjs
             );
+            
+            $this->_Acl          = $this->_Acl;
+            $this->_layoutParams = $_layoutParams;
             /**
              * 
              */
@@ -80,6 +87,7 @@
                 include_once $rootView;
                 include_once ROOT . 'views' . DS . 'layouts' . DS . DEFAULT_LAYOUT . DS . 'footer.php';
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('Error view');
             }
         }
@@ -90,6 +98,7 @@
                     $this->_css[] =  BASE_URL . 'views/' . $this->_controller . '/assets/css/' . $css[$i] . '.css';
                 }
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('ERROR files CSS in ' . $this->_controller);
             }
         }
@@ -99,6 +108,7 @@
                     $this->_js[] = BASE_URL . 'views/' . $this->_controller . '/assets/js/' . $js[$i] . '.js';
                 }
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('ERROR file JS in ' . $this->_controller);
             }
         } 
@@ -108,6 +118,7 @@
                     $this->_libscss[] = BASE_URL . 'libs/CSS/' . $libscss[$i] . '.css';
                 }
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('ERROR file libs CSS in ' . $this->_controller);
             }
         }
@@ -117,6 +128,7 @@
                     $this->_libsjs[] = BASE_URL . 'libs/JS/' . $libsjs[$i] . '.js';
                 }
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('ERROR files libs JS in ' . $this->_controller);
             }
         }
@@ -128,6 +140,7 @@
                             $this->_libscssjs[] = BASE_URL . 'libs/CSS&JS/' . $libscssjs[$i] . '.css';
                         }
                     } else {
+                        http_response_code(404);
                         throw new Exception('ERROR file libs CSS & JS in ' . $this->_controller);
                     }
                     break;
@@ -137,6 +150,7 @@
                             $this->_libscssjs[] = BASE_URL . 'libs/CSS&JS/' . $libscssjs[$i] . '.js';
                         }
                     } else {
+                        http_response_code(404);
                         throw new Exception('ERROR file libs CSS & JS in ' . $this->_controller);
                     }
                     break;

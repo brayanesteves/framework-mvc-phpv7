@@ -1,8 +1,12 @@
 <?php
     abstract class Controller {
+        
+        protected $_ACL;
         protected $_view;
+
         public function __construct() {
-            $this->_view = new View(new Request);
+            $this->_ACL  = new ACL();
+            $this->_view = new View(new Request, $this->_ACL);
         }
         /**
          * This abstract method forces all classes that inherit from 'Controller'
@@ -28,6 +32,7 @@
                 $model = new $model;
                 return $model;
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('Error model');
             }
         }
@@ -43,6 +48,7 @@
                 $socket = new $socket;
                 return $socket;
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('Error Web Sockets');
             }
         }
@@ -52,6 +58,7 @@
             if(is_readable($rootLibrary)) {
                 require_once $rootLibrary;
             } else {
+                header('HTTP/1.0 404 Not Found', true, 404);
                 throw new Exception('Error library ' . $rootLibrary);
             }
         }

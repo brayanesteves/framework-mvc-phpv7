@@ -13,6 +13,7 @@
      */
     try {
         require_once APP_PATH .     'Config.php';
+        require_once APP_PATH .        'ACL.php';
         require_once APP_PATH .    'Request.php';
         require_once APP_PATH .  'Bootstrap.php';
         require_once APP_PATH . 'Controller.php';
@@ -30,7 +31,7 @@
 
         /**
          * echo Hash::getHash('sha1', '1234', HASH_KEY); exit;
-         */        
+         */
 
         // =============================== //
         //          'Session.php'          //
