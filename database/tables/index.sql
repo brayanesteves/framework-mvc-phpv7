@@ -101,21 +101,21 @@ CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_OprtnUsrTypActns` (
 
 # <ENGLISH: ACTIONS / SPANISH: ACCIONES>
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_Actns` (
-    `Rfrnc`      INT    (255) NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
-    `Rfrnc_Lnk`  INT    (255)     NULL                COMMENT 'Rfrnc_Lnk    (English: Reference Link                     / Spanish: Referencia. Enlace)',
-    `Nm`         VARCHAR(20)  NOT NULL                COMMENT 'Nm           (English: Name                               / Spanish: Nombre)',
-    `Dscrptn`    TEXT         NOT NULL                COMMENT 'Dscrptn      (English: Description                        / Spanish: Descripción)',
-    `Rfrnc_Actn` INT    (255)     NULL                COMMENT 'Rfrnc_Actn   (English: Reference. Action                  / Spanish: Referencia. Acción)',
-    `Mdl_Rfrnc`  INT    (255) NOT NULL                COMMENT 'Mdl_Rfrnc    (English: Module. Reference                  / English: Referencia. Módulo)',    
-    `Cndtn`      INT    (2)   NOT NULL                COMMENT 'Cndtn        (English: Condition [0: Inactive, 1: Active] / Spanish: Estado [0: Inactivo, 1: Activo])',
-    `Rmvd`       INT    (2)   NOT NULL                COMMENT 'Rmvd         (English: Removed [0: Inactive, 1: Active]   / Spanish: Eliminado [0: Inactivo, 1: Activo])',
-    `Lckd`       INT    (2)   NOT NULL                COMMENT 'Lckd         (English: Locked [0: Inactive, 1: Active]    / Spanish: Bloqueado [0: Inactivo, 1: Activo])',
-    `DtAdmssn`   DATE             NULL                COMMENT 'DtAdmssn     (English: Date of Admission                  / Spanish: Fecha de Ingreso)',
-    `ChckTm`     TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                      / Spanish: Hora de Ingreso)', 
+    `Rfrnc`      INT    (255) NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                                                  / Spanish: Referencia)',
+    `Rfrnc_Lnk`  INT    (255)     NULL                COMMENT 'Rfrnc_Lnk    (English: Reference Link                                             / Spanish: Referencia. Enlace)',
+    `Nm`         VARCHAR(20)  NOT NULL                COMMENT 'Nm           (English: Name                                                       / Spanish: Nombre)',
+    `Dscrptn`    TEXT         NOT NULL                COMMENT 'Dscrptn      (English: Description                                                / Spanish: Descripción)',
+    `Rfrnc_Actn` INT    (255)     NULL                COMMENT 'Rfrnc_Actn   (English: Reference. Action                                          / Spanish: Referencia. Acción)',
+    `Mdl_Rfrnc`  INT    (255) NOT NULL                COMMENT 'Mdl_Rfrnc    (English: Module. Reference                                          / English: Referencia. Módulo)',   
+    `Prmssn`     INT    (2)   NOT NULL                COMMENT 'Prmssn       (English: Permission [0: Disabled, 1: Enabled, 2: Denied, 3: Ignore] / Spanish: Estado [0: Deshabilitado, 1: Habilitado, 2: Denegado, 3: Ignorado])', 
+    `Cndtn`      INT    (2)   NOT NULL                COMMENT 'Cndtn        (English: Condition [0: Inactive, 1: Active]                         / Spanish: Estado [0: Inactivo, 1: Activo])',
+    `Rmvd`       INT    (2)   NOT NULL                COMMENT 'Rmvd         (English: Removed [0: Inactive, 1: Active]                           / Spanish: Eliminado [0: Inactivo, 1: Activo])',
+    `Lckd`       INT    (2)   NOT NULL                COMMENT 'Lckd         (English: Locked [0: Inactive, 1: Active]                            / Spanish: Bloqueado [0: Inactivo, 1: Activo])',
+    `DtAdmssn`   DATE             NULL                COMMENT 'DtAdmssn     (English: Date of Admission                                          / Spanish: Fecha de Ingreso)',
+    `ChckTm`     TIME             NULL                COMMENT 'ChckTm       (English: Check In Time                                              / Spanish: Hora de Ingreso)', 
     PRIMARY KEY (`Rfrnc`)
 ) ENGINE='InnoDB' DEFAULT CHARSET='utf8' COLLATE='utf8_bin' COMMENT='0_Actns (English: 0 - Actions / Spanish: 0 - Acciones)';
 # <.ENGLISH: ACTIONS / SPANISH: ACCIONES>
-
 # <ENGLISH: USERS ACTIONS / SPANISH: ACCIONES DE USUARIOS>
 CREATE TABLE IF NOT EXISTS `MIPSS_`.`0_UsrsActns` (
     `Rfrnc`      INT    (255) NOT NULL AUTO_INCREMENT COMMENT 'Rfrnc        (English: Reference                          / Spanish: Referencia)',
