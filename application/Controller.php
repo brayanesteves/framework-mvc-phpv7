@@ -163,5 +163,46 @@
             return true;
         }
 
+        /**
+         * We detect the explorer
+         */
+        function detectBrowser() {
+                $browser = array("IE", "OPERA", "MOZILLA", "NETSCAPE", "FIREFOX", "SAFARI", "CHROME");
+                $os      = array("WIN","MAC","LINUX");
+
+                /**
+                 * We define default values for the browser and the operating system.
+                 */
+                $info['browser'] = "OTHER";
+                $info['os']      = "OTHER";
+
+                /**
+                 * We search for the browser with its operating system
+                 */
+                foreach($browser as $parent) {
+                    $s       = strpos(strtoupper($_SERVER['HTTP_USER_AGENT']), $parent);
+                    $f       = $s + strlen($parent);
+                    $version = substr($_SERVER['HTTP_USER_AGENT'], $f, 15);
+                    $version = preg_replace('/[^0-9,.]/', '', $version);
+                    if ($s) {
+                        $info['browser'] = $parent;
+                        $info['version'] = $version;
+                    }
+                }
+                
+                /**
+                 * We get the OS
+                 */
+                foreach($os as $val) {
+                    if (strpos(strtoupper($_SERVER['HTTP_USER_AGENT']),$val)!==false)
+                        $info['os'] = $val;
+                }
+                
+                /**
+                 * We return the array of values
+                 */
+                return $info;
+        }
+
     }
 ?>
