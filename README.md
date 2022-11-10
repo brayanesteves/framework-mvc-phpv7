@@ -6,7 +6,7 @@
 - [Pruebas](#pruebas)
 - [Endpoints](#endpoints)
 - [Docker](#docker)
-- [Colaborar] (#colaborarme)
+- [Colaborar](#colaborarme)
 ---
 ## Descripción
 
